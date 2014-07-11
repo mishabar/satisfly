@@ -1,0 +1,85 @@
+﻿html, body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-image: url(http://www.planetalkinglive.com/wp-content/uploads/Air-France-Business-Class-near-flat-bed-in-Affaires-Cabin.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent;
+    color: #000;
+}
+
+.navbar a, footer, footer a, .jumbotron a {
+    color: #FFF;
+}
+
+    footer .nav > li > a:hover, footer .nav > li > a:focus {
+        color: #999;
+    }
+
+.body-content {
+    padding-bottom: 40px;
+}
+
+footer {
+    border-top: 1px solid #333;
+    padding: 5px 0px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+    footer p {
+        margin: 0px;
+        padding: 10px 0px;
+    }
+
+.jumbotron {
+    background-color: rgba(51,51,51,0.7);
+    color: #FFF;
+}
+
+    .jumbotron h2 {
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .jumbotron p.lead {
+        text-align: justify;
+    }
+
+    .jumbotron dl dt {
+        font-size: larger;
+    }
+
+    .jumbotron dl dd {
+        padding: 5px 0px 10px 0px;
+    }
+
+
+.form-control.input-validation-error {
+    border-color: #A94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.form-control.input-validation-error:focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+
+span.field-validation-error {
+    font-size: smaller;
+}

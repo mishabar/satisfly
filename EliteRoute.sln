@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{EF6E397D-1AF9-409C-A1ED-3FFD32FFB8DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{9CD4BCD2-844C-464E-9E88-C23AD04C01E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{8A7BBC88-C6FD-4548-8396-8511490AB047}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteRoute.Web", "EliteRoute.Web\EliteRoute.Web.csproj", "{9334C285-1719-48C9-A748-4BF1B1ECED9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteRoute.Data", "EliteRoute.Data\EliteRoute.Data.csproj", "{71085D97-84A4-4DCA-B4A6-5EAD751C8831}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9334C285-1719-48C9-A748-4BF1B1ECED9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9334C285-1719-48C9-A748-4BF1B1ECED9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9334C285-1719-48C9-A748-4BF1B1ECED9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9334C285-1719-48C9-A748-4BF1B1ECED9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71085D97-84A4-4DCA-B4A6-5EAD751C8831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71085D97-84A4-4DCA-B4A6-5EAD751C8831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71085D97-84A4-4DCA-B4A6-5EAD751C8831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71085D97-84A4-4DCA-B4A6-5EAD751C8831}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9334C285-1719-48C9-A748-4BF1B1ECED9D} = {EF6E397D-1AF9-409C-A1ED-3FFD32FFB8DE}
+		{71085D97-84A4-4DCA-B4A6-5EAD751C8831} = {9CD4BCD2-844C-464E-9E88-C23AD04C01E7}
+	EndGlobalSection
+EndGlobal

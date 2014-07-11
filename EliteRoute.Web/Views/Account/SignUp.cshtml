@@ -1,0 +1,64 @@
+﻿@model EliteRoute.Web.Models.SignUpModel
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron col-md-6 col-md-offset-3">
+    <h2>Sign Up</h2>
+    @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First Name" })
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last Name" })
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Birthdate, new { @class = "form-control", placeholder = "Birthdate (MM/DD/YYYY)" })
+            @Html.ValidationMessageFor(m => m.Birthdate)
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Address1, new { @class = "form-control", placeholder = "Address line 1" })
+            @Html.ValidationMessageFor(m => m.Address1)
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Address2, new { @class = "form-control", placeholder = "Address line 2" })
+            @Html.ValidationMessageFor(m => m.Address2)
+        </div>
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+        </div>
+    }
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(function () {
+            $("#Birthdate").datetimepicker({
+                pickTime: false,
+                minDate: new Date(@DateTime.Today.AddYears(-100).Year, @DateTime.Today.Month, @DateTime.Today.Day - 1 ),
+                maxDate: new Date(@DateTime.Today.AddYears(-15).Year, @DateTime.Today.Month, @DateTime.Today.Day - 1 )
+            }).on("dp.error", function(d){
+                $("span[data-valmsg-for=Birthdate]").append("<span for='Birthdate'>Invalid date or date out of range</span>");
+            });
+        });
+    </script>
+}
