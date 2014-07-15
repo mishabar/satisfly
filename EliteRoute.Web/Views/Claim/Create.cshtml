@@ -1,8 +1,43 @@
-﻿
+﻿@model EliteRoute.Web.Models.CreateClaimModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Submit Claim";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<div class="jumbotron col-md-6 col-md-offset-3">
+    <h2>File a Claim</h2>
+    @using (Html.BeginForm("Create", "Claim", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.DropDownListFor(m => m.Airline, Model.Airlines, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Airline)
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.FlightNumber, new { @class = "form-control", placeholder = "Flight Number" })
+            @Html.ValidationMessageFor(m => m.FlightNumber)
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.ConfirmationNumber, new { @class = "form-control", placeholder = "Confirmation Number" })
+            @Html.ValidationMessageFor(m => m.ConfirmationNumber)
+        </div>
+        <div class="form-group">
+            <label>Issue:</label>
+            @foreach (var issue in Model.Issues)
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="Issue" name="Issue" value="@issue.ID"> @issue.Name
+                    </label>
+                </div>
+            }
+            @Html.ValidationMessageFor(m => m.FlightNumber)
+        </div>
+        <div class="form-group">
+            @Html.TextAreaFor(m => m.Comments, new { @class = "form-control", placeholder = "Comments", rows = 4 })
+        </div>
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+        </div>
+    }
+</div>
 

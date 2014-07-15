@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EliteRoute.Services;
+using EliteRoute.Services.Tokens;
+using EliteRoute.Web.Models;
 
 namespace EliteRoute.Web.Controllers
 {
-    [Authorize]
+    //    [Authorize]
     public class ClaimController : Controller
     {
+        private IDataService _dataService = null;
+
+        public ClaimController(IDataService dataService)
+        {
+            _dataService = dataService;
+        }
+
         // GET: Claim
         public ActionResult Index()
         {
@@ -24,16 +34,19 @@ namespace EliteRoute.Web.Controllers
         // GET: Claim/Create
         public ActionResult Create()
         {
-            return View();
+            CreateClaimModel model = new CreateClaimModel();
+            model.Airlines = _dataService.GetAirlines().ToSelectList();
+            model.Issues = _dataService.GetIssues();
+
+            return View(model);
         }
 
         // POST: Claim/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CreateClaimModel model)
         {
             try
             {
-                // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
             }
