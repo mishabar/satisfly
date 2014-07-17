@@ -1,0 +1,49 @@
+﻿@model EliteRoute.Web.Models.ComplaintDetailsModel
+@{
+    ViewBag.Title = "Complaint Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron col-md-8 col-md-offset-2">
+    <h2>Complaint #@Model.Complaint.ID</h2>
+    <div class="complaint row">
+        <div class="col-xs-2 col-md-1">
+            <img src="/Content/images/@Model.Airlines.First(a => a.ID == Model.Complaint.Airline).Image" />
+        </div>
+        <div class="col-xs-10 col-md-11">
+            <div class="details">
+                <h3>@Model.Airlines.First(a => a.ID == Model.Complaint.Airline).Name @Model.Complaint.FlightNumber</h3>
+                <dl class="dl-horizontal">
+                    <dt>Opened On</dt>
+                    <dd>@Model.Complaint.CreatedOn.ToString("MM/dd/yyyy")</dd>
+                    <dt>Issues</dt>
+                    <dd>@string.Join(", ", Model.Complaint.Issues.Select(i => Model.Issues.First(x => x.ID == i).Name).ToArray())</dd>
+                    <dt>Comments</dt>
+                    <dd>@Model.Complaint.Comments</dd>
+                    <dt>Status</dt>
+                    <dd>@(((EliteRoute.Services.Tokens.ComplaintStatus)Model.Complaint.Status).ToString())</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <hr />
+    @if (Model.Complaint.History != null)
+    {
+        <div class="history">
+            <h4>History</h4>
+            <table class="table">
+                <thead>
+                    <tr><th>Date</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Complaint.History)
+                    {
+                        <tr><td>@item.CreatedOn.ToString("MM/dd/yyyy")</td><td>@item.Comments</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
