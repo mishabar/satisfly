@@ -18,6 +18,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("Index", "Complaint")"><i class="fa fa-history"></i>&nbsp;Complaints History</a></li>
                             <li><a href="@Url.Action("LevelInfo", "Account")"><i class="fa fa-paper-plane-o"></i>&nbsp;Airline Level Details</a></li>
                             <li><a href="@Url.Action("BillingInfo", "Account")"><i class="fa fa-money"></i>&nbsp;Billing Details</a></li>
                             <li class="divider"></li>

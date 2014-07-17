@@ -37,9 +37,11 @@ namespace EliteRoute.Web
             builder.Register(c => mongoClient.GetServer().GetDatabase(ConfigurationManager.AppSettings["MongoDB"].Split('/').Last())).AsSelf();
 
             builder.Register(c => new AccountRepository(c.Resolve<MongoDatabase>())).AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.Register(c => new ComplaintRepository(c.Resolve<MongoDatabase>())).AsImplementedInterfaces().InstancePerLifetimeScope();
 
             builder.Register(c => new DataService()).AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.Register(c => new AccountService(c.Resolve<IAccountRepository>())).AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.Register(c => new ComplaintService(c.Resolve<IComplaintRepository>())).AsImplementedInterfaces().InstancePerLifetimeScope();
 
             // build the dependencies
             IContainer container = builder.Build();

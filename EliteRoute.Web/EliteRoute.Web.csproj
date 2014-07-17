@@ -131,7 +131,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CreateClaimModel.cs" />
+    <Compile Include="Models\ComplaintDetailsModel.cs" />
+    <Compile Include="Models\ComplaintListModel.cs" />
+    <Compile Include="Models\CreateComplaintModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\SignInModel.cs" />
     <Compile Include="Models\SignUpModel.cs" />
@@ -145,6 +147,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\american.jpg" />
+    <Content Include="Content\images\delta.jpg" />
+    <Content Include="Content\images\untied.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -205,6 +210,8 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Complaint\Index.cshtml" />
+    <Content Include="Views\Complaint\Created.cshtml" />
+    <Content Include="Views\Complaint\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

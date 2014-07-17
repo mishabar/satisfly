@@ -116,3 +116,59 @@ span.field-validation-error {
         margin-left: 40px;
         font-size: larger;
     }
+
+.complaint::after {
+    content: '';
+    display: table;
+}
+
+.complaint img {
+    width: 58px;
+    height: 58px;
+    float: left;
+}
+
+.complaint .details {
+    margin-left: 10px;
+    float: left;
+}
+
+    .complaint .details h3 {
+        margin-top: 0px;
+    }
+
+        .complaint .details h3 a {
+            color: #FFF;
+        }
+
+    .complaint .details dl {
+        margin-bottom: 0px;
+    }
+
+        .complaint .details dl dt {
+            font-size: inherit;
+            width: 100px;
+            text-align: left;
+        }
+
+        .complaint .details dl dd {
+            padding: 0px;
+            margin-left: 120px;
+        }
+
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 20px;
+    }
+
+    .complaint img {
+        width: 48px;
+        height: 48px;
+        float: left;
+    }
+
+    .complaint .details dl dd {
+        padding: 0px;
+        margin-left: 0px;
+    }
+}

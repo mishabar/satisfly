@@ -9,6 +9,10 @@ namespace EliteRoute.Services
 {
     public interface IComplaintService
     {
-        void Create(ComplaintToken Complaint);
+        ComplaintToken Create(ComplaintToken complaint);
+
+        IEnumerable<ComplaintToken> GetAllByEmail(string email);
+
+        ComplaintToken GetByID(string email, long id);
     }
 }

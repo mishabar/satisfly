@@ -13,22 +13,36 @@ namespace EliteRoute.Web.Controllers
     public class ComplaintController : Controller
     {
         private IDataService _dataService = null;
+        private IComplaintService _complaintService = null;
 
-        public ComplaintController(IDataService dataService)
+        public ComplaintController(IDataService dataService, IComplaintService complaintService)
         {
             _dataService = dataService;
+            _complaintService = complaintService;
         }
 
         // GET: Complaint
         public ActionResult Index()
         {
-            return View();
+            ComplaintListModel model = new ComplaintListModel 
+            { 
+                Complaints = _complaintService.GetAllByEmail(User.Identity.Name),
+                Airlines = _dataService.GetAirlines(),
+                Issues = _dataService.GetIssues()
+            };
+            return View(model);
         }
 
         // GET: Complaint/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(long id)
         {
-            return View();
+            ComplaintDetailsModel model = new ComplaintDetailsModel 
+            {
+                Complaint = _complaintService.GetByID(User.Identity.Name, id),
+                Airlines = _dataService.GetAirlines(),
+                Issues = _dataService.GetIssues()
+            };
+            return View(model);
         }
 
         // GET: Complaint/Create
@@ -41,19 +55,39 @@ namespace EliteRoute.Web.Controllers
             return View(model);
         }
 
+        // GET: Complaint/Create
+        public ActionResult Created(long id)
+        {
+            return View(id);
+        }
+
         // POST: Complaint/Create
         [HttpPost]
         public ActionResult Create(CreateComplaintModel model)
         {
             try
             {
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    ComplaintToken token = _complaintService.Create(new ComplaintToken 
+                    { 
+                        Email = User.Identity.Name,
+                        Airline = model.Airline, 
+                        FlightNumber = model.FlightNumber, 
+                        ConfirmationNumber = model.ConfirmationNumber, 
+                        Issues = model.Issue, 
+                        Comments = model.Comments 
+                    });
+                    return RedirectToAction("Details", new { id = token.ID });
+                }
             }
             catch
             {
-                return View();
+                model.Error = "Unexpected error occured. Please try again.";
             }
+            model.Airlines = _dataService.GetAirlines().ToSelectList();
+            model.Issues = _dataService.GetIssues();
+            return View(model);
         }
 
         // GET: Complaint/Edit/5

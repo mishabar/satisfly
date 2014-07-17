@@ -21,6 +21,7 @@ namespace EliteRoute.Web.Models
         [Required]
         public int[] Issue { get; set; }
         public string Comments { get; set; }
+        public string Error { get; set; }
 
         public IEnumerable<SelectListItem> Airlines { get; set; }
         public IEnumerable<IssueToken> Issues { get; set; }

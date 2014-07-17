@@ -11,7 +11,7 @@ namespace EliteRoute.Services.Tokens
     {
         public int ID { get; set; }
         public string Name { get; set; }
-
+        public object Image { get; set; }
     }
 
     public static class AirlineTokenExtensions

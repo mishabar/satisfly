@@ -1,9 +1,39 @@
-﻿
+﻿@model EliteRoute.Web.Models.ComplaintListModel
 @{
     ViewBag.Title = "Complaint History";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron col-md-6 col-md-offset-3">
+<div class="jumbotron col-md-8 col-md-offset-2">
     <h2>Complaint History</h2>
+    @if (Model.Complaints.Count() == 0)
+    {
+        <div class="text-center">There are no complaints in you account</div>
+    }
+    else
+    {
+        foreach (var item in Model.Complaints)
+        {
+            <div class="complaint row">
+                <div class="col-xs-2 col-md-1">
+                    <img src="/Content/images/@Model.Airlines.First(a => a.ID == item.Airline).Image" />
+                </div>
+                <div class="col-xs-10 col-md-11">
+                    <div class="details">
+                        <h3><a href="@Url.Action("Details", "Complaint", new { id = item.ID })">@Model.Airlines.First(a => a.ID == item.Airline).Name @item.FlightNumber</a></h3>
+                        <dl class="dl-horizontal">
+                            <dt>Opened On</dt>
+                            <dd>@item.CreatedOn.ToString("MM/dd/yyyy")</dd>
+                            <dt>Issues</dt>
+                            <dd>@string.Join(", ", item.Issues.Select(i => Model.Issues.First(x => x.ID == i).Name).ToArray())</dd>
+                            <dt>Status</dt>
+                            <dd>@(((EliteRoute.Services.Tokens.ComplaintStatus)item.Status).ToString())</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <hr />
+        }
+    }
 </div>

@@ -16,7 +16,7 @@ namespace EliteRoute.Services
 
         public IList<AirlineToken> GetAirlines()
         {
-            return new AirlineToken[] { new AirlineToken { ID = 1, Name = "American Airlines" }, new AirlineToken { ID = 2, Name = "Delta" }, new AirlineToken { ID = 3, Name = "United Airlines" } };
+            return new AirlineToken[] { new AirlineToken { ID = 1, Name = "American Airlines", Image = "american.jpg" }, new AirlineToken { ID = 2, Name = "Delta", Image = "delta.jpg" }, new AirlineToken { ID = 3, Name = "United Airlines", Image = "united.png" } };
         }
     }
 }
