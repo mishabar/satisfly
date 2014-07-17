@@ -125,7 +125,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ClaimController.cs" />
+    <Compile Include="Controllers\ComplaintController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,10 +199,12 @@
     <Content Include="Views\Home\HowItWorks.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
-    <Content Include="Views\Claim\Create.cshtml" />
+    <Content Include="Views\Complaint\Create.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Complaint\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -211,6 +213,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EliteRoute.Data\EliteRoute.Data.csproj">
+      <Project>{71085d97-84a4-4dca-b4a6-5ead751c8831}</Project>
+      <Name>EliteRoute.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EliteRoute.Services\EliteRoute.Services.csproj">
       <Project>{a31f32f6-de89-4501-b606-a97fb5a30185}</Project>
       <Name>EliteRoute.Services</Name>

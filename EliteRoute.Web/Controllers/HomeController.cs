@@ -10,6 +10,8 @@ namespace EliteRoute.Web.Controllers
     {
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+                return Redirect("/Account");
             return View();
         }
 

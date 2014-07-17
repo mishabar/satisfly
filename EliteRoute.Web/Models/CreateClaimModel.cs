@@ -8,13 +8,15 @@ using EliteRoute.Services.Tokens;
 
 namespace EliteRoute.Web.Models
 {
-    public class CreateClaimModel
+    public class CreateComplaintModel
     {
         [Required]
         public int Airline { get; set; }
         [Required]
+        [Display(Name = "Flight Number")]
         public string FlightNumber { get; set; }
         [Required]
+        [Display(Name = "Confirmation Number")]
         public string ConfirmationNumber { get; set; }
         [Required]
         public int[] Issue { get; set; }

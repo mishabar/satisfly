@@ -7,9 +7,9 @@ using EliteRoute.Services.Tokens;
 
 namespace EliteRoute.Services
 {
-    public class ClaimService : IClaimService
+    public class ComplaintService : IComplaintService
     {
-        public void Create(ClaimToken claim)
+        public void Create(ComplaintToken Complaint)
         {
         }
     }

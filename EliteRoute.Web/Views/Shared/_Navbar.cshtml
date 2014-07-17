@@ -1,4 +1,4 @@
-﻿<div class="navbar">
+﻿<div class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -10,12 +10,20 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("File a Claim", "Create", "Claim")</li>
+                <li>@Html.ActionLink("File a Complaint", "Create", "Complaint")</li>
                 <li>@Html.ActionLink("How It Works", "HowItworks", "Home")</li>
                 <li>@Html.ActionLink("FAQ", "FAQ", "Home")</li>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li>@Html.ActionLink("Sign-out", "SignOut", "Account")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("LevelInfo", "Account")"><i class="fa fa-paper-plane-o"></i>&nbsp;Airline Level Details</a></li>
+                            <li><a href="@Url.Action("BillingInfo", "Account")"><i class="fa fa-money"></i>&nbsp;Billing Details</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("SignOut", "Account")"><i class="fa fa-sign-out"></i>&nbsp;Sign-out</a></li>
+                        </ul>
+                    </li>
                 }
                 else
                 {

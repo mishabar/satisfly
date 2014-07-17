@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EliteRoute.Services.Tokens
 {
-    public class ClaimToken
+    public class ComplaintToken
     {
         public long ID { get; set; }
         public int Airline { get; set; }

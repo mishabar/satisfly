@@ -16,7 +16,7 @@ namespace EliteRoute.Web
             routes.MapRoute(
                 name: "Account",
                 url: "Account/{action}",
-                defaults: new { controller = "Account", action = "SignIn" }
+                defaults: new { controller = "Account", action = "Index" }
             );
 
             routes.MapRoute(

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EliteRoute.Data.Model
 {
-    public class Claim
+    public class Complaint
     {
         public long ID { get; set; }
         public int Airline { get; set; }

@@ -1,12 +1,12 @@
-﻿@model EliteRoute.Web.Models.CreateClaimModel
+﻿@model EliteRoute.Web.Models.CreateComplaintModel
 @{
-    ViewBag.Title = "Submit Claim";
+    ViewBag.Title = "Submit Complaint";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="jumbotron col-md-6 col-md-offset-3">
-    <h2>File a Claim</h2>
-    @using (Html.BeginForm("Create", "Claim", FormMethod.Post))
+    <h2>File a Complaint</h2>
+    @using (Html.BeginForm("Create", "Complaint", FormMethod.Post))
     {
         <div class="form-group">
             @Html.DropDownListFor(m => m.Airline, Model.Airlines, new { @class = "form-control" })
@@ -30,7 +30,7 @@
                     </label>
                 </div>
             }
-            @Html.ValidationMessageFor(m => m.FlightNumber)
+            @Html.ValidationMessageFor(m => m.Issue)
         </div>
         <div class="form-group">
             @Html.TextAreaFor(m => m.Comments, new { @class = "form-control", placeholder = "Comments", rows = 4 })
@@ -41,3 +41,7 @@
     }
 </div>
 
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace EliteRoute.Data.Model
+namespace EliteRoute.Services.Tokens
 {
-    public class Loyalty
+    public class LoyaltyToken
     {
         public int Airline { get; set; }
         public int Level { get; set; }

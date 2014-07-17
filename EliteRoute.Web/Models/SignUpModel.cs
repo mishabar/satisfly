@@ -16,7 +16,7 @@ namespace EliteRoute.Web.Models
         [MaxLength(15)]
         public string Password { get; set; }
         [Compare("Password")]
-        [Display(Name="Confirm Password")]
+        [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
         [Required]
         public string FirstName { get; set; }
@@ -25,6 +25,7 @@ namespace EliteRoute.Web.Models
         [Required]
         public string Phone { get; set; }
         [Required]
+        [Display(Name = "Address")]
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         [Required]

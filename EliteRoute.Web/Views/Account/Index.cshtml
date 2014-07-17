@@ -1,0 +1,16 @@
+﻿@model EliteRoute.Services.Tokens.AccountToken
+
+@{
+    ViewBag.Title = User.Identity.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron col-md-6 col-md-offset-3">
+    <h2>@string.Format("Welcome back, {0} {1}!", Model.FirstName, Model.LastName)</h2>
+    <div class="account-summary">
+        <h3>Grand Total: @string.Format("{0:c}", Model.TotalRefunds / 100)</h3>
+        <div>Miles: @Model.TotalMiles</div>
+        <div>Dollars: @string.Format("{0:c}", Model.TotalMoney / 100)</div>
+    </div>
+    <p class="text-center">@Html.ActionLink("File a Complaint", "Create", "Complaint", null, new { @class = "btn btn-success btn-lg" })&nbsp;@Html.ActionLink("Track a Complaint", "Index", "Complaint", null, new { @class = "btn btn-success btn-lg" })</p>
+</div>
